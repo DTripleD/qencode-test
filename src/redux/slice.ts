@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginn } from "./operations";
+import { createPassword, loginn, resetPassword } from "./operations";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -29,6 +29,12 @@ const userSlice = createSlice({
     builder
       .addCase(loginn.fulfilled, (state, action) => {
         state = action.payload;
+      })
+      .addCase(resetPassword.fulfilled, (state, action) => {
+        // state = action.payload;
+      })
+      .addCase(createPassword.fulfilled, (state, action) => {
+        // state = action.payload;
       })
       .addMatcher((action) => action.type.endsWith("/pending"), handlePending)
       .addMatcher(

@@ -1,15 +1,27 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { AppDispatch } from "../redux/store";
+import { resetPassword } from "../redux/operations";
 
 const ForgotPasswordPage = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
   const handleForgot = (e) => {
     e.preventDefault();
+
+    dispatch(
+      resetPassword({
+        email: e.target.elements.email.value,
+        redirect_url: "https://auth-qa.qencode.com/password-set",
+      })
+    );
   };
   return (
     <div>
       <h2 className="title">Forgot Password?</h2>
       <form onSubmit={handleForgot}>
         <label className="label email">
-          <input type="text" placeholder="Enter your email" />
+          <input type="text" placeholder="Enter your email" id="email" />
         </label>
 
         <div className="forgot__buttons__wrapper">

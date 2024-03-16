@@ -76,6 +76,14 @@ img {
   padding: 13px;
 
   margin-bottom: 20px;
+
+  cursor: pointer;
+
+  transition: background-color ease-in-out 300ms;
+}
+
+.login__btn:hover {
+  background-color: #225aca;
 }
 
 .forgot_pass {
