@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import axios from "axios";
+import { selectUser } from "./selectors";
+import { useSelector } from "react-redux";
 
 export const instance = axios.create({
   baseURL: "https://auth-qa.qencode.com/v1/auth",
@@ -9,7 +11,6 @@ export const instance = axios.create({
 export const loginn = createAsyncThunk(
   "user/loginn",
   async (user: { email: string; password: string }, { rejectWithValue }) => {
-    console.log(user);
     try {
       const response = await instance.post("login", user);
 
@@ -59,6 +60,22 @@ export const createPassword = createAsyncThunk(
         ...user,
       });
 
+      return response.data;
+    } catch (error) {
+      return rejectWithValue({
+        payload: (error as { message: string }).message,
+      });
+    }
+  }
+);
+
+export const refreshUser = createAsyncThunk(
+  "user/refreshUser",
+  async (refresh_token: string, { rejectWithValue }) => {
+    try {
+      const response = await instance.post("/refresh-token", {
+        refresh_token,
+      });
       return response.data;
     } catch (error) {
       return rejectWithValue({

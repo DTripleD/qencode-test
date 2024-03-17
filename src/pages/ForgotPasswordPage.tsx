@@ -19,9 +19,11 @@ const ForgotPasswordPage = () => {
   return (
     <div>
       <h2 className="title">Forgot Password?</h2>
-      <form onSubmit={handleForgot}>
+      <form onSubmit={handleForgot} className="form">
         <label className="label email">
-          <input type="text" placeholder="Enter your email" id="email" />
+          <div className="input__wrapper">
+            <input type="text" placeholder="Enter your email" id="email" />
+          </div>
         </label>
 
         <div className="forgot__buttons__wrapper">

@@ -10,7 +10,7 @@ import { loginn } from "../redux/operations";
 
 const LoginPage = () => {
   const [user, setUser] = useState([]);
-  const [profile, setProfile] = useState([]);
+  // const [profile, setProfile] = useState([]);
 
   const [isShown, setIsShown] = useState(false);
 
@@ -21,15 +21,19 @@ const LoginPage = () => {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(e.target.elements.mail.value);
+    const form = e.currentTarget as HTMLFormElement;
+    const emailInput = form.elements.namedItem("mail") as HTMLInputElement;
+    const passwordInput = form.elements.namedItem(
+      "password"
+    ) as HTMLInputElement;
 
     dispatch(
       loginn({
-        email: e.target.elements.mail.value,
-        password: e.target.elements.password.value,
+        email: emailInput.value,
+        password: passwordInput.value,
       })
     );
   };
@@ -64,20 +68,24 @@ const LoginPage = () => {
         <p className="variant">or</p>
         <form onSubmit={handleLogin} className="form">
           <label className="label email">
-            <input type="text" placeholder="Work email" name="mail" />
+            <div className="input__wrapper">
+              <input type="text" placeholder="Work email" name="mail" />
+            </div>
           </label>
           <label className="label password">
-            <input
-              type={isShown ? "text" : "password"}
-              placeholder="Password"
-              name="password"
-            />
-            <svg
-              className="icon__eye"
-              onClick={() => setIsShown((prev) => !prev)}
-            >
-              <use href={icons + "#eye"}></use>
-            </svg>
+            <div className="input__wrapper">
+              <input
+                type={isShown ? "text" : "password"}
+                placeholder="Password"
+                name="password"
+              />
+              <svg
+                className="icon__eye"
+                onClick={() => setIsShown((prev) => !prev)}
+              >
+                <use href={icons + "#eye"}></use>
+              </svg>
+            </div>
           </label>
           <Link to="/forgot" className="forgot">
             Forgot your password?

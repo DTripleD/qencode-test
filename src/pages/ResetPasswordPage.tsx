@@ -18,14 +18,18 @@ const ResetPasswordPage = () => {
   return (
     <div>
       <h2 className="title">Create new Password?</h2>
-      <form onSubmit={handleReset}>
-        <label>
+      <form onSubmit={handleReset} className="form">
+        <label className="label password">
           Password
-          <input type="password" placeholder="Password" id="password" />
+          <div className="input__wrapper">
+            <input type="password" placeholder="Password" id="password" />
+          </div>
         </label>
-        <label>
+        <label className="label password">
           Confirm Password
-          <input type="password" placeholder="Password" id="confirm" />
+          <div className="input__wrapper">
+            <input type="password" placeholder="Password" id="confirm" />
+          </div>
         </label>
         <button type="submit" className="login__btn">
           Reset Password
