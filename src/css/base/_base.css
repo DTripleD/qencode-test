@@ -1,0 +1,11 @@
+@font-face {
+  font-family: BasisGrotesqueProRegular;
+  src: url("../../fonts/BasisGrotesquePro-Regular.ttf");
+}
+
+body {
+  font-family: BasisGrotesqueProRegular;
+  letter-spacing: 0.03em;
+  background-color: #ffffff;
+  color: #212121;
+}

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../redux/store";
-import { logOut } from "../redux/slice";
+
+import { logOut } from "../../redux/slice";
+import { AppDispatch } from "../../redux/store";
 
 const MainPage = () => {
   const dispatch = useDispatch<AppDispatch>();

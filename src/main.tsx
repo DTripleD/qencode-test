@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <GoogleOAuthProvider clientId="631286612386-jr3ks0phd3pe97njd5241peobfccolkc.apps.googleusercontent.com">
-          <Router basename="/">
+          <Router basename="/qencode-test">
             <App />
           </Router>
         </GoogleOAuthProvider>

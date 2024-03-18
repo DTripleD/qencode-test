@@ -1,13 +1,15 @@
-import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
 
-import icons from "../images/icons.svg";
+import css from "./SharedLayout.module.css";
+
+import icons from "../../images/icons.svg";
 
 export const SharedLayout = () => {
   return (
     <>
-      <div className="container">
-        <svg className="icon__logo">
+      <div className={css.container}>
+        <svg className={css.icon__logo}>
           <use href={icons + "#logo"}></use>
         </svg>
         <Suspense fallback={<div>Loading</div>}>

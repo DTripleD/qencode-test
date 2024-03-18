@@ -1,10 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  createPassword,
-  loginn,
-  refreshUser,
-  resetPassword,
-} from "./operations";
+import { loginn, refreshUser } from "./operations";
 
 const handlePending = (state: UserState) => {
   state.isLoading = true;
@@ -62,12 +57,6 @@ const userSlice = createSlice({
       .addCase(loginn.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
-      })
-      .addCase(resetPassword.fulfilled, (state, action) => {
-        // state = action.payload;
-      })
-      .addCase(createPassword.fulfilled, (state, action) => {
-        // state = action.payload;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user.refresh_token = action.payload.refresh_token;
