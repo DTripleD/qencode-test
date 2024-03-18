@@ -14,11 +14,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <GoogleOAuthProvider clientId="631286612386-jr3ks0phd3pe97njd5241peobfccolkc.apps.googleusercontent.com">
-          <Router basename="/qencode-test/">
+        <Router basename="/qencode-test/">
+          <GoogleOAuthProvider clientId="631286bfccolkc.apps.googleusercontent.com">
             <App />
-          </Router>
-        </GoogleOAuthProvider>
+          </GoogleOAuthProvider>
+        </Router>
       </PersistGate>
     </Provider>
   </React.StrictMode>
