@@ -1,0 +1,1 @@
+import{j as s}from"./index-CpLVpzc3.js";import{c as a}from"./ApplyButton-DJkVemyC.js";const m=({placeholder:e})=>s.jsx("label",{className:`${a.label} ${a.email}`,children:s.jsx("div",{className:a.input__wrapper,children:s.jsx("input",{className:a.input,type:"email",placeholder:e,name:"mail"})})});export{m as E};
